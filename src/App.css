@@ -1,7 +1,20 @@
+:root {
+  --s: 8px;
+  --m: 24px;
+  --l: 92px;
+}
+
 body {
   margin: 0;
 }
 
 * {
   box-sizing: border-box;
+}
+
+section#main {
+  width: calc(100vw - 200px);
+  height: calc(100vh - 200px);
+  margin: 100px;
+  position: relative;
 }
