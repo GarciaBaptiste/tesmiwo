@@ -155,17 +155,16 @@ const SerifWrapper = styled.div`
   position: relative;
   width: var(--l);
   height: 100%;
-  overflow: hidden;
   mix-blend-mode: darken;
   justify-self: ${(props) => {
     switch (props.orientation) {
-      case "bl":
+      case "hbl":
         return "end";
-      case "tl":
+      case "htl":
         return "end";
-      case "tr":
+      case "htr":
         return "start";
-      case "br":
+      case "hbr":
         return "start";
     }
   }}
@@ -186,50 +185,82 @@ const SerifForeground = styled.div`
   border-radius: 100%;
   top: ${(props) => {
     switch (props.orientation) {
-      case "bl":
+      case "hbl":
         return "unset";
-      case "tl":
+      case "htl":
         return "var(--s)";
-      case "tr":
+      case "htr":
         return "var(--s)";
-      case "br":
+      case "hbr":
         return "unset";
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return 0;
+      case "vbr":
+        return "";
     }
   }};
   right: ${(props) => {
     switch (props.orientation) {
-      case "bl":
+      case "hbl":
         return 0;
-      case "tl":
+      case "htl":
         return 0;
-      case "tr":
+      case "htr":
         return "unset";
-      case "br":
+      case "hbr":
         return "unset";
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return "var(--s)";
+      case "vbr":
+        return "";
     }
   }};
   bottom: ${(props) => {
     switch (props.orientation) {
-      case "bl":
+      case "hbl":
         return "var(--s)";
-      case "tl":
+      case "htl":
         return "unset";
-      case "tr":
+      case "htr":
         return "unset";
-      case "br":
+      case "hbr":
         return "var(--s)";
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return "unset";
+      case "vbr":
+        return "";
     }
   }};
   left: ${(props) => {
     switch (props.orientation) {
-      case "bl":
+      case "hbl":
         return "unset";
-      case "tl":
+      case "htl":
         return "unset";
-      case "tr":
+      case "htr":
         return 0;
-      case "br":
+      case "hbr":
         return 0;
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return "unset";
+      case "vbr":
+        return "";
     }
   }};
 `;
@@ -246,26 +277,27 @@ const Serif = (props) => {
 
 const LetterA = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)", flex: "0.65"}}>
       <QuarterCircle style={{ gridColumn: " 2 / span 4", gridRow: "span 2" }} $strokex="var(--s)" $strokey="var(--s)" orientation="tl" />
       <Stroke style={{ gridColumn: "2", gridRow: "3 / span 3" }} />
       <Stroke style={{ gridColumn: "6", gridRow: "1 / span 5" }} />
       <Stroke style={{ gridColumn: "3 / span 3", gridRow: "3" }} />
-      <Serif style={{ gridColumn: "1", gridRow: "5" }} orientation="bl" />
-      <Serif style={{ gridColumn: "3", gridRow: "5" }} orientation="br" />
-      <Serif style={{ gridColumn: "5", gridRow: "5" }} orientation="bl" />
-      <Serif style={{ gridColumn: "7", gridRow: "5" }} orientation="br" />
+      <Serif style={{ gridColumn: "1", gridRow: "5" }} orientation="hbl" />
+      <Serif style={{ gridColumn: "3", gridRow: "5" }} orientation="hbr" />
+      <Serif style={{ gridColumn: "5", gridRow: "5" }} orientation="hbl" />
+      <Serif style={{ gridColumn: "7", gridRow: "5" }} orientation="hbr" />
     </BasicLetter>
   )
 };
 
 const LetterC = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }} $offsety={true}>
-      <QuarterCircle orientation="tl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
-      <QuarterCircle style={{ gridColumn: "2" }} orientation="tr" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
-      <QuarterCircle orientation="bl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
-      <QuarterCircle style={{ gridColumn: "2" }} orientation="br" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+    <BasicLetter style={{ gridTemplateColumns: "1fr 0.25fr var(--l) 0.15fr", gridTemplateRows: "var(--s) var(--m) 1fr 0.75fr", flex: "0.75" }} $offsety={true}>
+      <QuarterCircle style={{ gridColumn: "1", gridRow: "1 / span 3" }} orientation="tl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+      <Stroke style={{ gridColumn: "span 2" }} />
+      <Serif style={{ gridColumn: "3", gridRow: "2" }} orientation="vtr" />
+      <QuarterCircle style={{ gridColumn: "1", gridRow: "4" }} orientation="bl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+      <QuarterCircle style={{gridColumn: "2 / span 3", gridRow: "4"}} orientation="br" $strokex="var(--s)" $strokey="var(--s)" />
     </BasicLetter>
   )
 }
