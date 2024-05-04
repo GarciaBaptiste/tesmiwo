@@ -17,4 +17,6 @@ section#main {
   height: calc(100vh - 200px);
   margin: 100px;
   position: relative;
+  display: flex;
+  gap: 5%;
 }

@@ -12,7 +12,8 @@ const Test = styled.div`
 const BasicLetter = styled.div`
   display: grid;
   width: 100%;
-  height: 100%;
+  height: ${props => props.$offsety ? "calc(100% + var(--s) * 2)" : "100%"};
+  margin-top: ${props => props.$offsety ? "calc(-1 * var(--s))" : "unset"};
 `;
 
 const Stroke = styled.div`
@@ -30,27 +31,121 @@ const QuarterCircleBackground = styled.div`
   background: black;
   width: 200%;
   height: 200%;
-  border-radius: 100%;
+  border-radius: ${props => props.$square ? "100vmax" : "100%"};
   position: absolute;
+  top: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return "unset";
+      case "tl":
+        return 0;
+      case "tr":
+        return 0;
+      case "br":
+        return "unset";
+    }
+  }};
+  right: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return "unset";
+      case "tl":
+        return "unset";
+      case "tr":
+        return 0;
+      case "br":
+        return 0;
+    }
+  }};
+  bottom: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return 0;
+      case "tl":
+        return "unset";
+      case "tr":
+        return "unset";
+      case "br":
+        return 0;
+    }
+  }};
+  left: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return 0;
+      case "tl":
+        return 0;
+      case "tr":
+        return "unset";
+      case "br":
+        return "unset";
+    }
+  }};
 `;
 
 const QuarterCircleForeground = styled.div`
   background: white;
-  width: calc(200% - calc(${props => props.$strokex} * 2));
+  width: calc(200% - calc((${props => props.$strokex} * 2))${props => props.$thickerx ? " - calc(var(--l) * 0.2)" : ""});
   height: calc(200% - calc(${props => props.$strokey} * 2));
-  border-radius: 100%;
+  border-radius: ${props => props.$square ? "100vmax" : "100%"};
   position: absolute;
-  left: ${props => props.$strokex};
-  top: ${props => props.$strokey};
+  top: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return "unset";
+      case "tl":
+        return props => props.$strokey;
+      case "tr":
+        return props => props.$strokey;
+      case "br":
+        return "unset";
+    }
+  }};
+  right: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return "unset";
+      case "tl":
+        return "unset";
+      case "tr":
+        return `calc(${props.$strokex} ${props.$thickerx ? "+ (var(--l) * 0.1)" : ""})`;
+      case "br":
+        return `calc(${props.$strokex} ${props.$thickerx ? "+ (var(--l) * 0.1)" : ""})`;
+    }
+  }};
+  bottom: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return props => props.$strokey;
+      case "tl":
+        return "unset";
+      case "tr":
+        return "unset";
+      case "br":
+        return props => props.$strokey;
+    }
+  }};
+  left: ${(props) => {
+    switch (props.orientation) {
+      case "bl":
+        return `calc(${props.$strokex} ${props.$thickerx ? "+ (var(--l) * 0.1)" : ""})`;
+      case "tl":
+        return `calc(${props.$strokex} ${props.$thickerx ? "+ (var(--l) * 0.1)" : ""})`;
+      case "tr":
+        return "unset";
+      case "br":
+        return "unset";
+    }
+  }};
 `;
 
 const QuarterCircle = (props) => {
-  const { style, $strokex, $strokey } = props;
+  const { style, orientation, $strokex, $strokey, $square, $thickerx } = props;
   return (
     <div style={style}>
       <QuarterCircleWrapper>
-        <QuarterCircleBackground />
-        <QuarterCircleForeground $strokex={$strokex} $strokey={$strokey} />
+        <QuarterCircleBackground orientation={orientation} $square={$square} />
+        <QuarterCircleForeground orientation={orientation} $strokex={$strokex} $strokey={$strokey} $square={$square} $thickerx={$thickerx} />
       </QuarterCircleWrapper>
     </div>
   )
@@ -70,7 +165,7 @@ const SerifWrapper = styled.div`
         return "end";
       case "tr":
         return "start";
-      case "br" :
+      case "br":
         return "start";
     }
   }}
@@ -152,7 +247,7 @@ const Serif = (props) => {
 const LetterA = () => {
   return (
     <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)" }}>
-      <QuarterCircle style={{ gridColumn: " 2 / span 4", gridRow: "span 2" }} $strokex="var(--s)" $strokey="var(--s)" />
+      <QuarterCircle style={{ gridColumn: " 2 / span 4", gridRow: "span 2" }} $strokex="var(--s)" $strokey="var(--s)" orientation="tl" />
       <Stroke style={{ gridColumn: "2", gridRow: "3 / span 3" }} />
       <Stroke style={{ gridColumn: "6", gridRow: "1 / span 5" }} />
       <Stroke style={{ gridColumn: "3 / span 3", gridRow: "3" }} />
@@ -164,10 +259,22 @@ const LetterA = () => {
   )
 };
 
+const LetterC = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }} $offsety={true}>
+      <QuarterCircle orientation="tl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+      <QuarterCircle style={{ gridColumn: "2" }} orientation="tr" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+      <QuarterCircle orientation="bl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+      <QuarterCircle style={{ gridColumn: "2" }} orientation="br" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
+    </BasicLetter>
+  )
+}
+
 function App() {
   return (
     <section id="main">
       <LetterA />
+      <LetterC />
     </section>
   )
 }
