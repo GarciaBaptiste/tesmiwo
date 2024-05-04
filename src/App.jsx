@@ -302,11 +302,26 @@ const LetterC = () => {
   )
 }
 
+const LetterD = () => {
+  return (
+    <BasicLetter style={{gridTemplateColumns: "0.25fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-3%"}}>
+      <Stroke />
+      <Stroke style={{gridColumn: "2", gridRow: "1 / span 4"}} />
+      <Stroke style={{gridRow: "4"}}/>
+      <Stroke style={{gridColumn: "3"}} />
+      <Stroke style={{gridColumn: "3", gridRow: "4"}} />
+      <QuarterCircle style={{gridColumn: "4", gridRow: "1 / span 2"}} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
+      <QuarterCircle style={{gridColumn: "4", gridRow: "3 / span 2"}} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
+    </BasicLetter>
+  )
+}
+
 function App() {
   return (
     <section id="main">
       <LetterA />
       <LetterC />
+      <LetterD />
     </section>
   )
 }
