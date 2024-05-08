@@ -25,6 +25,8 @@ const QuarterCircleWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  min-width: ${props => props.$strokex};
+
 `;
 
 const QuarterCircleBackground = styled.div`
@@ -143,7 +145,7 @@ const QuarterCircle = (props) => {
   const { style, orientation, $strokex, $strokey, $square, $thickerx } = props;
   return (
     <div style={style}>
-      <QuarterCircleWrapper>
+      <QuarterCircleWrapper $strokex={$strokex}>
         <QuarterCircleBackground orientation={orientation} $square={$square} />
         <QuarterCircleForeground orientation={orientation} $strokex={$strokex} $strokey={$strokey} $square={$square} $thickerx={$thickerx} />
       </QuarterCircleWrapper>
@@ -175,6 +177,46 @@ const SerifBackground = styled.div`
   background: black;
   width: var(--l);
   height: var(--l);
+  top: ${(props) => {
+    switch (props.orientation) {
+      case "hbl":
+        return "";
+      case "htl":
+        return "";
+      case "htr":
+        return "";
+      case "hbr":
+        return "";
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return "";
+      case "vbr":
+        return "unset";
+    }
+  }};
+  bottom: ${(props) => {
+    switch (props.orientation) {
+      case "hbl":
+        return "";
+      case "htl":
+        return "";
+      case "htr":
+        return "";
+      case "hbr":
+        return "";
+      case "vbl":
+        return "";
+      case "vtl":
+        return "";
+      case "vtr":
+        return "";
+      case "vbr":
+        return 0;
+    }
+  }};
 `;
 
 const SerifForeground = styled.div`
@@ -200,7 +242,7 @@ const SerifForeground = styled.div`
       case "vtr":
         return 0;
       case "vbr":
-        return "";
+        return "unset";
     }
   }};
   right: ${(props) => {
@@ -220,7 +262,7 @@ const SerifForeground = styled.div`
       case "vtr":
         return "var(--s)";
       case "vbr":
-        return "";
+        return "var(--s)";
     }
   }};
   bottom: ${(props) => {
@@ -240,7 +282,7 @@ const SerifForeground = styled.div`
       case "vtr":
         return "unset";
       case "vbr":
-        return "";
+        return 0;
     }
   }};
   left: ${(props) => {
@@ -260,7 +302,7 @@ const SerifForeground = styled.div`
       case "vtr":
         return "unset";
       case "vbr":
-        return "";
+        return "unset";
     }
   }};
 `;
@@ -269,7 +311,7 @@ const Serif = (props) => {
   const { style, orientation } = props;
   return (
     <SerifWrapper orientation={orientation} style={style}>
-      <SerifBackground />
+      <SerifBackground orientation={orientation} />
       <SerifForeground orientation={orientation} />
     </SerifWrapper>
   )
@@ -277,7 +319,7 @@ const Serif = (props) => {
 
 const LetterA = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)", flex: "0.65"}}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)", flex: "0.65" }}>
       <QuarterCircle style={{ gridColumn: " 2 / span 4", gridRow: "span 2" }} $strokex="var(--s)" $strokey="var(--s)" orientation="tl" />
       <Stroke style={{ gridColumn: "2", gridRow: "3 / span 3" }} />
       <Stroke style={{ gridColumn: "6", gridRow: "1 / span 5" }} />
@@ -297,21 +339,38 @@ const LetterC = () => {
       <Stroke style={{ gridColumn: "span 2" }} />
       <Serif style={{ gridColumn: "3", gridRow: "2" }} orientation="vtr" />
       <QuarterCircle style={{ gridColumn: "1", gridRow: "4 / span 4" }} orientation="bl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
-      <QuarterCircle style={{gridColumn: "2 / span 3", gridRow: "5 / span 3"}} orientation="br" $strokex="var(--s)" $strokey="var(--s)" />
+      <QuarterCircle style={{ gridColumn: "2 / span 3", gridRow: "5 / span 3" }} orientation="br" $strokex="var(--s)" $strokey="var(--s)" />
     </BasicLetter>
   )
 }
 
 const LetterD = () => {
   return (
-    <BasicLetter style={{gridTemplateColumns: "0.25fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-3%"}}>
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-3%" }}>
       <Stroke />
-      <Stroke style={{gridColumn: "2", gridRow: "1 / span 4"}} />
-      <Stroke style={{gridRow: "4"}}/>
-      <Stroke style={{gridColumn: "3"}} />
-      <Stroke style={{gridColumn: "3", gridRow: "4"}} />
-      <QuarterCircle style={{gridColumn: "4", gridRow: "1 / span 2"}} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
-      <QuarterCircle style={{gridColumn: "4", gridRow: "3 / span 2"}} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
+      <Stroke style={{ gridColumn: "2", gridRow: "1 / span 4" }} />
+      <Stroke style={{ gridRow: "4" }} />
+      <Stroke style={{ gridColumn: "3" }} />
+      <Stroke style={{ gridColumn: "3", gridRow: "4" }} />
+      <QuarterCircle style={{ gridColumn: "4", gridRow: "1 / span 2" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
+      <QuarterCircle style={{ gridColumn: "4", gridRow: "3 / span 2" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} $thickerx={true} />
+    </BasicLetter>
+  )
+}
+
+const LetterE = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 1fr var(--l) var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--m) var(--s) var(--m) 1fr var(--m) var(--s)", flex: "0.65" }}>
+      <Stroke style={{ gridArea: "1 / 1 / 2 / 2" }} />
+      <Stroke style={{ gridArea: "1 / 2 / 10 / 3" }} />
+      <Stroke style={{ gridArea: "9 / 1 / 10 / 2" }} />
+      <Stroke style={{ gridArea: "1 / 3 / 2 / 6" }} />
+      <Stroke style={{ gridArea: "5 / 3 / 6 / 5" }} />
+      <Stroke style={{ gridArea: "9 / 3 / 10 / 6" }} />
+      <Serif style={{ gridArea: "2 / 5 / 3 / 6" }} orientation="vtr" />
+      <Serif style={{ gridArea: "4 / 4 / 5 / 5" }} orientation="vbr" />
+      <Serif style={{ gridArea: "6 / 4 / 7 / 5" }} orientation="vtr" />
+      <Serif style={{ gridArea: "8 / 5 / 9 / 6" }} orientation="vbr" />
     </BasicLetter>
   )
 }
@@ -321,7 +380,7 @@ function App() {
     <section id="main">
       <LetterA />
       <LetterC />
-      <LetterD />
+      <LetterE />
     </section>
   )
 }
