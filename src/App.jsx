@@ -334,7 +334,7 @@ const LetterA = () => {
 
 const LetterC = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "1fr 0.25fr var(--l) 0.15fr", gridTemplateRows: "var(--s) var(--m) 1fr 0.25fr 0.75fr var(--m) var(--s)", flex: "0.75" }} $offsety={true}>
+    <BasicLetter style={{ gridTemplateColumns: "1fr 0.25fr var(--l) 0.15fr", gridTemplateRows: "var(--s) var(--m) 1fr 0.25fr 0.75fr var(--m) var(--s)", flex: "0.75", marginLeft: "-1.5%" }} $offsety={true}>
       <QuarterCircle style={{ gridColumn: "1", gridRow: "1 / span 3" }} orientation="tl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
       <Stroke style={{ gridColumn: "span 2" }} />
       <Serif style={{ gridColumn: "3", gridRow: "2" }} orientation="vtr" />
@@ -346,7 +346,7 @@ const LetterC = () => {
 
 const LetterD = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-3%" }}>
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-1.5%", marginRight: "-1%" }}>
       <Stroke />
       <Stroke style={{ gridColumn: "2", gridRow: "1 / span 4" }} />
       <Stroke style={{ gridRow: "4" }} />
