@@ -388,6 +388,20 @@ const LetterG = () => {
   )
 }
 
+const LetterH = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "0.5fr var(--l) 0.5fr 1fr 0.5fr var(--l) 0.5fr", gridTemplateRows: "var(--s) 1fr var(--s) 1fr var(--s)", flex: "0.7", marginLeft: "-1%" }} >
+      <Strok style={{ gridArea: "1 / 2 / 6 / 3" }} />
+      <Strok style={{ gridArea: "3 / 3 / 4 / 7" }} />
+      <Strok style={{ gridArea: "1 / 6 / 6 / 7" }} />
+      <Strok style={{ gridArea: "1 / 1 / 2 / 4" }} />
+      <Strok style={{ gridArea: "1 / 5 / 2 / 8" }} />
+      <Strok style={{ gridArea: "5 / 1 / 6 / 4" }} />
+      <Strok style={{ gridArea: "5 / 5 / 6 / 8" }} />
+    </BasicLetter>
+  )
+}
+
 function App() {
   return (
     <section id="main">
@@ -396,6 +410,7 @@ function App() {
       <LetterD />
       <LetterE />
       <LetterG />
+      <LetterH />
     </section>
   )
 }
