@@ -337,7 +337,7 @@ const LetterC = () => {
     <BasicLetter style={{ gridTemplateColumns: "1fr 0.25fr var(--l) 0.15fr", gridTemplateRows: "var(--s) var(--m) 1fr 0.25fr 0.75fr var(--m) var(--s)", flex: "0.75", marginLeft: "-1.5%" }} $offsety={true}>
       <Round style={{ gridArea: "1 / 1 / 4 / 2" }} orientation="tl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
       <Strok style={{ gridArea: "1 / 2 / 2 / 4" }} />
-      <Serif style={{ gridArea: "1 / 3 / 2 / 4" }} orientation="vtr" />
+      <Serif style={{ gridArea: "2 / 3 / 3 / 4" }} orientation="vtr" />
       <Round style={{ gridArea: "4 / 1 / 8 / 2" }} orientation="bl" $square={true} $strokex="var(--l)" $strokey="var(--s)" $thickerx={true} />
       <Round style={{ gridArea: "5 / 2 / 8 / 5" }} orientation="br" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
     </BasicLetter>
