@@ -318,7 +318,7 @@ const SerifForeground = styled.div`
       case "vbl":
         return "";
       case "vtl":
-        return "";
+        return "var(--s)";
       case "vtr":
         return "unset";
       case "vbr":
@@ -489,12 +489,24 @@ const LetterR = () => {
   return (
     <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.2fr 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) .6fr var(--l)", flex: "0.7" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
-      <Strok style={{ gridArea: "1/2/7/3" }} />
-      <Strok style={{ gridArea: "5/1/7/2" }} $flatserif="b" />
-      <Strok style={{ gridArea: "5/3/7/4" }} $flatserif="b" />
-      <Round style={{ gridArea: "1/3/3/7" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
-      <Round style={{ gridArea: "3/3/5/7" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
-      <Round style={{ gridArea: "4/3/7/8" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Strok style={{ gridArea: "1 / 2 / 7 / 3" }} />
+      <Strok style={{ gridArea: "5 / 1 / 7 / 2" }} $flatserif="b" />
+      <Strok style={{ gridArea: "5 / 3 / 7 / 4" }} $flatserif="b" />
+      <Round style={{ gridArea: "1 / 3 / 3 / 7" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "3 / 3 / 5 / 7" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "4 / 3 / 7 / 8" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+    </BasicLetter>
+  )
+}
+
+const LetterT = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "var(--l) 1fr 0.5fr var(--l) 0.5fr 1fr var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--s)", flex: "0.7" }}>
+      <Strok style={{ gridArea: "1 / 1 / 2 / 8" }} />
+      <Strok style={{ gridArea: "2 / 4 / 5 / 5" }} />
+      <Serif style={{ gridArea: "2 / 1 / 3 / 2" }} orientation="vtl" />
+      <Serif style={{ gridArea: "2 / 7 / 3 / 8" }} orientation="vtr" />
+      <Strok style={{ gridArea: "4 / 3 / 5 / 6" }} />
     </BasicLetter>
   )
 }
@@ -502,10 +514,10 @@ const LetterR = () => {
 function App() {
   return (
     <section id="main">
-      <LetterA />
+      {/* <LetterA />
       <LetterC />
-      {/* <LetterD />
-      <LetterE /> */}
+      <LetterD /> */}
+      <LetterE />
       <LetterG />
       <LetterH />
       {/* <LetterI />
@@ -514,6 +526,7 @@ function App() {
       <LetterN /> */}
       <LetterO />
       <LetterR />
+      <LetterT />
     </section>
   )
 }
