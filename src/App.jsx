@@ -487,7 +487,15 @@ const LetterO = () => {
 
 const LetterR = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.2fr 0.3fr var(--m) var(--l) var(--m)", flex: "0.5" }}></BasicLetter>
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.2fr 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) .6fr var(--l)", flex: "0.7" }}>
+      <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
+      <Strok style={{ gridArea: "1/2/7/3" }} />
+      <Strok style={{ gridArea: "5/1/7/2" }} $flatserif="b" />
+      <Strok style={{ gridArea: "5/3/7/4" }} $flatserif="b" />
+      <Round style={{ gridArea: "1/3/3/7" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "3/3/5/7" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "4/3/7/8" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+    </BasicLetter>
   )
 }
 
