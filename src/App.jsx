@@ -346,8 +346,8 @@ const LetterA = () => {
       <Strok style={{ gridArea: "3 / 2 / 4 / 6" }} />
       <Serif style={{ gridArea: "5 / 1 / 6 / 2" }} orientation="hbl" />
       <Serif style={{ gridArea: "5 / 3 / 6 / 4" }} orientation="hbr" />
-      <Serif style={{ gridArea: "5 / 5 / 6 / 6" }} orientation="hbl" />
-      <Serif style={{ gridArea: "5 / 7 / 6 / 8" }} orientation="hbr" />
+      <Strok style={{ gridArea: "5 / 5 / 6 / 6" }} $flatserif="b" />
+      <Strok style={{ gridArea: "5 / 7 / 6 / 8" }} $flatserif="b" />
     </BasicLetter>
   )
 };
@@ -453,8 +453,8 @@ const LetterM = () => {
       <Strok style={{ gridArea: "1 / 5 / 4 / 6" }} />
       <Round style={{ gridArea: "1 / 6 / 3 / 8", marginLeft: "calc(-1 * var(--s))" }} orientation="tl" $strokex="var(--s)" $strokey="var(--s)" />
       <Strok style={{ gridArea: "1 / 8 / 4 / 9" }} />
-      <Strok style={{ gridArea: "3 / 7 / 4 / 8" }} orientation="hbl" $flatserif="b" />
-      <Strok style={{ gridArea: "3 / 9 / 4 / 10" }} orientation="hbr" $flatserif="b" />
+      <Strok style={{ gridArea: "3 / 7 / 4 / 8" }} $flatserif="b" />
+      <Strok style={{ gridArea: "3 / 9 / 4 / 10" }} $flatserif="b" />
     </BasicLetter>
   )
 }
@@ -494,7 +494,7 @@ const LetterR = () => {
 function App() {
   return (
     <section id="main">
-      {/* <LetterA /> */}
+      <LetterA />
       <LetterC />
       {/* <LetterD />
       <LetterE /> */}
@@ -502,8 +502,8 @@ function App() {
       <LetterH />
       {/* <LetterI />
       <LetterL /> */}
-      <LetterM />
-      <LetterN />
+      {/* <LetterM />
+      <LetterN /> */}
       <LetterO />
       <LetterR />
     </section>
