@@ -18,6 +18,26 @@ const BasicLetter = styled.div`
 
 const Strok = styled.div`
   background: black;
+  height: ${(props) => {
+    switch (props.$flatserif) {
+      case "b":
+        return "var(--s)";
+      case "t":
+        return "var(--s)";
+      default:
+        return "unset";
+    }
+  }};
+  align-self: ${(props) => {
+    switch (props.$flatserif) {
+      case "b":
+        return "end";
+      case "t":
+        return "unset";
+      default:
+        return "unset";
+    }
+  }}
 `;
 
 const RoundWrapper = styled.div`
@@ -433,8 +453,8 @@ const LetterM = () => {
       <Strok style={{ gridArea: "1 / 5 / 4 / 6" }} />
       <Round style={{ gridArea: "1 / 6 / 3 / 8", marginLeft: "calc(-1 * var(--s))" }} orientation="tl" $strokex="var(--s)" $strokey="var(--s)" />
       <Strok style={{ gridArea: "1 / 8 / 4 / 9" }} />
-      <Serif style={{ gridArea: "3 / 7 / 4 / 8" }} orientation="hbl" />
-      <Serif style={{ gridArea: "3 / 9 / 4 / 10" }} orientation="hbr" />
+      <Strok style={{ gridArea: "3 / 7 / 4 / 8" }} orientation="hbl" $flatserif="b" />
+      <Strok style={{ gridArea: "3 / 9 / 4 / 10" }} orientation="hbr" $flatserif="b" />
     </BasicLetter>
   )
 }
@@ -465,6 +485,12 @@ const LetterO = () => {
   )
 }
 
+const LetterR = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.2fr 0.3fr var(--m) var(--l) var(--m)", flex: "0.5" }}></BasicLetter>
+  )
+}
+
 function App() {
   return (
     <section id="main">
@@ -476,9 +502,10 @@ function App() {
       <LetterH />
       {/* <LetterI />
       <LetterL /> */}
-      {/* <LetterM />
-      <LetterN /> */}
+      <LetterM />
+      <LetterN />
       <LetterO />
+      <LetterR />
     </section>
   )
 }
