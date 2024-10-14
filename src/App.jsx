@@ -339,7 +339,7 @@ const Serif = (props) => {
 
 const LetterA = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)", flex: "0.65" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--s) 2.5fr var(--s) 1fr var(--l)", flex: "0.7", marginLeft: "-1%" }}>
       <Round style={{ gridArea: "1 / 2 / 3 / 6" }} $strokex="var(--s)" $strokey="var(--s)" orientation="tl" $square={true} />
       <Strok style={{ gridArea: "3 / 2 / 6 / 3" }} />
       <Strok style={{ gridArea: "1 / 6 / 6 / 7" }} />
@@ -434,7 +434,7 @@ const LetterI = () => {
 
 const LetterL = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.75fr var(--l) 0.75fr 1fr var(--l)", gridTemplateRows: "var(--s) 1fr var(--m) var(--s)", flex: "0.65" }} >
+    <BasicLetter style={{ gridTemplateColumns: "0.75fr var(--l) 0.75fr 1fr var(--l)", gridTemplateRows: "var(--s) 1fr var(--m) var(--s)", flex: "0.65", marginRight: "-1%" }} >
       <Strok style={{ gridArea: "1 / 1 / 2 / 4" }} />
       <Strok style={{ gridArea: "1 / 2 / 5 / 3" }} />
       <Strok style={{ gridArea: "4 / 1 / 5 / 6" }} />
@@ -501,7 +501,7 @@ const LetterR = () => {
 
 const LetterT = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--l) 1fr 0.5fr var(--l) 0.5fr 1fr var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--s)", flex: "0.7" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--l) 1fr 0.5fr var(--l) 0.5fr 1fr var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--s)", flex: "0.7", marginLeft: "-1%" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 8" }} />
       <Strok style={{ gridArea: "2 / 4 / 5 / 5" }} />
       <Serif style={{ gridArea: "2 / 1 / 3 / 2" }} orientation="vtl" />
@@ -514,19 +514,13 @@ const LetterT = () => {
 function App() {
   return (
     <section id="main">
-      {/* <LetterA />
-      <LetterC />
-      <LetterD /> */}
       <LetterE />
-      <LetterG />
-      <LetterH />
-      {/* <LetterI />
-      <LetterL /> */}
-      {/* <LetterM />
-      <LetterN /> */}
       <LetterO />
-      <LetterR />
-      <LetterT />
+      <LetterA />
+      <LetterD />
+      <LetterI />
+      <LetterN />
+      <LetterG />
     </section>
   )
 }

@@ -1,7 +1,7 @@
 :root {
-  --s: 4px;
-  --m: 24px;
-  --l: 48px;
+  --s: 2px;
+  --m: 12px;
+  --l: 24px;
 }
 
 body {
@@ -18,5 +18,5 @@ section#main {
   margin: 100px;
   position: relative;
   display: flex;
-  gap: 5%;
+  gap: 3%;
 }
