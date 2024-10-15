@@ -529,7 +529,7 @@ const LetterS = () => {
 
 const LetterP = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.2fr 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) 1fr var(--l)", flex: "0.7", marginRight: "-1%" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) 1fr var(--l)", flex: "0.7", marginRight: "-1%" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
       <Strok style={{ gridArea: "1 / 2 / 7 / 3" }} />
       <Strok style={{ gridArea: "6 / 1 / 7 / 2" }} $flatserif="b" />
@@ -596,7 +596,26 @@ const LetterY = () => {
 
 const Space = () => {
   return (
-    <BasicLetter style={{flex: "0.25"}} />
+    <BasicLetter style={{ flex: "0.25" }} />
+  )
+}
+
+const Point = ({$style, $star}) => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "var(--l) var(--s) var(--l)", gridTemplateRows: "1fr var(--l) var(--l)", flex: "0.2", ...$style}}>
+      {$star ? 
+        <>
+          <Serif style={{ gridArea: "2 / 1 / 3 / 2" }} orientation="hbl" />
+          <Strok style={{ gridArea: "2 / 2 / 4 / 3"}} />
+          <Serif style={{ gridArea: "2 / 3 / 3 / 4" }} orientation="hbr" />
+          <Serif style={{ gridArea: "3 / 1 / 4 / 2" }} orientation="htl" />
+          <Serif style={{ gridArea: "3 / 3 / 4 / 4" }} orientation="htr" />
+        </> : <>
+          <Strok style={{ gridArea: "3 / 1 / 4 / 2" }} />
+        </>
+      }
+      
+    </BasicLetter>
   )
 }
 
@@ -624,10 +643,13 @@ function App() {
       </div>
       <div class="sub-container">
       <LetterS />
+      <Point />
       <Space />
       <LetterV />
+      <Point $style={{ marginLeft: "-3%" }} $star={true}/>
       <Space />
       <LetterP />
+      <Point $style={{ marginLeft: "-5%" }} />
       </div>
     </section>
   )
