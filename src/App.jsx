@@ -540,6 +540,19 @@ const LetterP = () => {
   )
 }
 
+const LetterU = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 0.2fr 1fr var(--m) var(--s) var(--m)", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.8" }} $offsety={true}>
+      <Round style={{ gridArea: "1 / 2 / 5 / 5" }} orientation="bl" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "1 / 5 / 5 / 8" }} orientation="br" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
+      <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} $flatserif="b" />
+      <Strok style={{ gridArea: "1 / 3 / 2 / 4" }} $flatserif="b" />
+      <Serif style={{ gridArea: "1 / 6 / 2 / 7" }} orientation="htl" />
+      <Serif style={{ gridArea: "1 / 8 / 2 / 9" }} orientation="htr" />
+    </BasicLetter>
+  )
+}
+
 function App() {
   return (
     <section id="main">
@@ -547,7 +560,7 @@ function App() {
       <LetterS />
       <LetterO />
       <LetterA />
-      <LetterD />
+      <LetterU />
       <LetterT />
       </div>
       <div class="sub-container">
