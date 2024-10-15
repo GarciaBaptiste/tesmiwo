@@ -567,6 +567,18 @@ const LetterV = () => {
   )
 }
 
+const LetterZ = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) 1fr var(--m) var(--m)", gridTemplateRows: "var(--s) var(--l) 1fr var(--l) var(--s)", flex: "0.75"}}>
+      <Strok style={{ gridArea: "1 / 2 / 2 / 4" }} />
+      <Serif style={{ gridArea: "2 / 2 / 3 / 3" }} orientation="vtl" />
+      <Round style={{ gridArea: "1 / 1 / 5 / 4" }} orientation="tl" $strokex="var(--l)" $strokey="var(--s)" />
+      <Strok style={{ gridArea: "5 / 1 / 6 / 5" }} />
+      <Serif style={{ gridArea: "4 / 3 / 5 / 4" }} orientation="vbr" />
+    </BasicLetter>
+  )
+}
+
 const LetterY = () => {
   return (
     <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--l) 1.3fr 1fr", flex: "0.7"}}>
@@ -590,7 +602,7 @@ function App() {
       <LetterO />
       <LetterA />
       <LetterU />
-      <LetterV />
+      <LetterZ />
       </div>
       <div class="sub-container">
       <LetterL />
