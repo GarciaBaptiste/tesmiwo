@@ -529,13 +529,18 @@ const LetterS = () => {
 function App() {
   return (
     <section id="main">
+      <div class="sub-container">
       <LetterS />
       <LetterO />
       <LetterA />
       <LetterD />
+      </div>
+      <div class="sub-container">
+      <LetterL />
       <LetterI />
       <LetterN />
       <LetterG />
+      </div>
     </section>
   )
 }

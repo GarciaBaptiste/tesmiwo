@@ -1,7 +1,13 @@
-:root {
+/* :root {
   --s: 2px;
   --m: 12px;
   --l: 24px;
+} */
+
+:root {
+  --s: 0.2vw;
+  --m: 1.2vw;
+  --l: 2.4vw;
 }
 
 body {
@@ -17,6 +23,13 @@ section#main {
   height: calc(100vh - 200px);
   margin: 100px;
   position: relative;
+  display: flex;
+  gap: 3%;
+  flex-direction:column;
+}
+
+.sub-container {
+  flex: 1 1 100%;
   display: flex;
   gap: 3%;
 }
