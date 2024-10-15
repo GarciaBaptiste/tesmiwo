@@ -366,7 +366,7 @@ const LetterC = () => {
 
 const LetterD = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-1.5%", marginRight: "-1%" }}>
+    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 0.25fr 1fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.85", marginLeft: "-0.5%", marginRight: "-0.5%" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
       <Strok style={{ gridArea: "1 / 2 / 5 / 3" }} />
       <Strok style={{ gridArea: "4 / 1 / 5 / 2" }} />
@@ -380,7 +380,7 @@ const LetterD = () => {
 
 const LetterE = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.2fr var(--l) 1fr var(--l) var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--m) var(--s) var(--m) 1fr var(--m) var(--s)", flex: "0.65" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) 1fr var(--l) var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--m) var(--s) var(--m) 1fr var(--m) var(--s)", flex: "0.65" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
       <Strok style={{ gridArea: "1 / 2 / 10 / 3" }} />
       <Strok style={{ gridArea: "9 / 1 / 10 / 2" }} />
@@ -424,7 +424,7 @@ const LetterH = () => {
 
 const LetterI = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "0.5fr var(--l) 0.5fr", gridTemplateRows: "var(--s) 1fr var(--s)", flex: "0.35", marginLeft: "-1%" }} >
+    <BasicLetter style={{ gridTemplateColumns: "0.5fr var(--l) 0.5fr", gridTemplateRows: "var(--s) 1fr var(--s)", flex: "0.35" }} >
       <Strok style={{ gridArea: "1 / 2 / 4 / 3" }} />
       <Strok style={{ gridArea: "1 / 1 / 2 / 4" }} />
       <Strok style={{ gridArea: "3 / 1 / 4 / 4" }} />
@@ -542,7 +542,7 @@ const LetterP = () => {
 
 const LetterU = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 0.2fr 1fr var(--m) var(--s) var(--m)", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.8" }} $offsety={true}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 0.2fr 1fr var(--m) var(--s) var(--m)", gridTemplateRows: "var(--s) 1fr 1fr var(--s)", flex: "0.8", marginLeft: "-0.5%" }} $offsety={true}>
       <Round style={{ gridArea: "1 / 2 / 5 / 5" }} orientation="bl" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
       <Round style={{ gridArea: "1 / 5 / 5 / 8" }} orientation="br" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} $flatserif="t" />
@@ -581,7 +581,7 @@ const LetterZ = () => {
 
 const LetterY = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--l) 1.3fr 1fr", flex: "0.7"}}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--s) var(--m) 1fr var(--m) var(--l) var(--m)", gridTemplateRows: "var(--l) 1.3fr 1fr", flex: "0.7"}} $offsety={true}>
       <Round style={{ gridArea: "2 / 2 / 3 / 6" }} orientation="bl" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
       <Strok style={{ gridArea: "1 / 2 / 2 / 3" }} />
       <Round style={{ gridArea: "2 / 4 / 4 / 7" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
@@ -594,22 +594,40 @@ const LetterY = () => {
   )
 }
 
+const Space = () => {
+  return (
+    <BasicLetter style={{flex: "0.25"}} />
+  )
+}
+
 function App() {
   return (
     <section id="main">
       <div class="sub-container">
+      <LetterE />
       <LetterS />
-      <LetterO />
-      <LetterA />
+      <LetterS />
       <LetterU />
+      <LetterY />
+      <LetterE />
       <LetterZ />
+      <Space />
+      <LetterV />
+      <LetterO />
+      <LetterS />
+      <Space />
+      <LetterP />
+      <LetterI />
+      <LetterE />
+      <LetterD />
+      <LetterS />
       </div>
       <div class="sub-container">
-      <LetterL />
-      <LetterI />
-      <LetterN />
+      <LetterS />
+      <Space />
+      <LetterV />
+      <Space />
       <LetterP />
-      <LetterY />
       </div>
     </section>
   )

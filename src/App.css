@@ -6,8 +6,8 @@
 
 :root {
   --s: 0.2vw;
-  --m: 1.2vw;
-  --l: 2.4vw;
+  --m: 0.6vw;
+  --l: 1.2vw;
 }
 
 body {
@@ -24,12 +24,12 @@ section#main {
   margin: 100px;
   position: relative;
   display: flex;
-  gap: 3%;
+  gap: 1vw;
   flex-direction:column;
 }
 
 .sub-container {
   flex: 1 1 100%;
   display: flex;
-  gap: 3%;
+  gap: 1vw;
 }
