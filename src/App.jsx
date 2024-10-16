@@ -606,13 +606,13 @@ const Number1 = () => {
 
 const Number2 = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--l) var(--m) 1fr 1fr var(--m) var(--l) var(--s)", gridTemplateRows: "var(--s) 1fr var(--l) var(--l) 1fr var(--l) 1fr var(--m) var(--l)", flex: "0.7"}}>
-      <Round style={{ gridArea: "1 / 1 / 4 / 4" }} orientation="tl" $strokex="var(--l)" $strokey="var(--s)"  $square={true} />
+    <BasicLetter style={{ gridTemplateColumns: "var(--l) var(--m) 1fr 1fr var(--m) var(--l) var(--s)", gridTemplateRows: "var(--s) 1fr var(--l) var(--l) 1fr var(--s) 1fr var(--m) var(--l)", flex: "0.7"}}>
+      <Round style={{ gridArea: "1 / 1 / 4 / 4" }} orientation="tl" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
       <Strok style={{ gridArea: "4 / 1 / 5 / 2" }} />
       <Serif style={{ gridArea: "4 / 2 / 5 / 3" }} orientation="hbr" />
-      <Round style={{ gridArea: "1 / 4 / 4 / 8" }} orientation="tr" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
-      <Round style={{ gridArea: "4 / 8 / 7 / 4" }} orientation="br" $strokex="var(--s)" $strokey="var(--l)" $square={true} />
-      <Round style={{ gridArea: "6 / 1 / 9 / 4" }} orientation="tl" $strokex="var(--s)" $strokey="var(--l)" $square={true} />
+      <Round style={{ gridArea: "1 / 4 / 4 / 8" }} orientation="tr" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "4 / 8 / 7 / 4" }} orientation="br" $strokex="var(--l)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "6 / 1 / 9 / 4" }} orientation="tl" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
       <Strok style={{ gridArea: "9 / 1 / 10 / 8" }} />
       <Strok style={{ gridArea: "8 / 7 / 9 / 8" }} />
     </BasicLetter>
@@ -657,7 +657,7 @@ function App() {
       <LetterI />
       <LetterS />
       <LetterT />
-      <LetterE />
+      {/* <LetterE /> */}
       <Point $star={true}/>
       <Number2 />
       </div>
