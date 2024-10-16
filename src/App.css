@@ -6,8 +6,13 @@
 
 :root {
   --s: 0.2vw;
-  --m: 0.6vw;
-  --l: 1.2vw;
+  --m: 0.8vw;
+  --l: 1.6vw;
+
+  --color1: rgb(0,0,0);
+  --color2: rgb(255,255,255);
+
+  background-color: var(--color2);
 }
 
 body {
@@ -19,12 +24,12 @@ body {
 }
 
 section#main {
-  width: calc(100vw - 200px);
-  height: calc(100vh - 200px);
-  margin: 100px;
+  width: calc(100vw - 500px);
+  height: calc(100vh - 500px);
+  margin: 250px;
   position: relative;
   display: flex;
-  gap: 1vw;
+  gap: 10px;
   flex-direction:column;
 }
 

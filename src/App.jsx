@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Test = styled.div`
   width: 36px;
   height: 100%;
-  background: black;
+  background: var(--color1);
   position: absolute;
   left: 50%;
 `;
@@ -17,7 +17,7 @@ const BasicLetter = styled.div`
 `;
 
 const Strok = styled.div`
-  background: black;
+  background: var(--color1);
   height: ${(props) => {
     switch (props.$flatserif) {
       case "b":
@@ -50,7 +50,7 @@ const RoundWrapper = styled.div`
 `;
 
 const RoundBackground = styled.div`
-  background: black;
+  background: var(--color1);
   width: 200%;
   height: 200%;
   border-radius: ${props => props.$square ? "100vmax" : "100%"};
@@ -106,7 +106,7 @@ const RoundBackground = styled.div`
 `;
 
 const RoundForeground = styled.div`
-  background: white;
+  background: var(--color2);
   width: calc(200% - calc((${props => props.$strokex} * 2))${props => props.$thickerx ? " - calc(var(--l) * 0.2)" : ""});
   height: calc(200% - calc(${props => props.$strokey} * 2));
   border-radius: ${props => props.$square ? "100vmax" : "100%"};
@@ -194,7 +194,7 @@ const SerifWrapper = styled.div`
 
 const SerifBackground = styled.div`
   position: absolute;
-  background: black;
+  background: var(--color1);
   width: var(--l);
   height: var(--l);
   top: ${(props) => {
@@ -243,7 +243,7 @@ const SerifForeground = styled.div`
   position: absolute;
   width: calc(var(--l) * 2);
   height: calc(var(--l) * 2);
-  background: white;
+  background: var(--color2);
   border-radius: 100%;
   top: ${(props) => {
     switch (props.orientation) {
@@ -380,7 +380,7 @@ const LetterD = () => {
 
 const LetterE = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) 1fr var(--l) var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--m) var(--s) var(--m) 1fr var(--m) var(--s)", flex: "0.65" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) 1fr var(--l) var(--l)", gridTemplateRows: "var(--s) var(--m) 1fr var(--m) var(--s) var(--m) 1fr var(--m) var(--s)", flex: "0.65", marginLeft: "-0.5%" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
       <Strok style={{ gridArea: "1 / 2 / 10 / 3" }} />
       <Strok style={{ gridArea: "9 / 1 / 10 / 2" }} />
@@ -529,7 +529,7 @@ const LetterS = () => {
 
 const LetterP = () => {
   return (
-    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) 1fr var(--l)", flex: "0.7", marginRight: "-1%" }}>
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m) 1fr var(--m) var(--l) 0.2fr", gridTemplateRows: "var(--s) 1fr 1fr var(--s) 1fr var(--l)", flex: "0.75", marginRight: "-1%" }}>
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} />
       <Strok style={{ gridArea: "1 / 2 / 7 / 3" }} />
       <Strok style={{ gridArea: "6 / 1 / 7 / 2" }} $flatserif="b" />
@@ -547,8 +547,8 @@ const LetterU = () => {
       <Round style={{ gridArea: "1 / 5 / 5 / 8" }} orientation="br" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
       <Strok style={{ gridArea: "1 / 1 / 2 / 2" }} $flatserif="t" />
       <Strok style={{ gridArea: "1 / 3 / 2 / 4" }} $flatserif="t" />
-      <Serif style={{ gridArea: "1 / 6 / 2 / 7" }} orientation="htl" />
-      <Serif style={{ gridArea: "1 / 8 / 2 / 9" }} orientation="htr" />
+      {/* <Serif style={{ gridArea: "1 / 6 / 2 / 7" }} orientation="htl" />
+      <Serif style={{ gridArea: "1 / 8 / 2 / 9" }} orientation="htr" /> */}
     </BasicLetter>
   )
 }
@@ -594,9 +594,34 @@ const LetterY = () => {
   )
 }
 
-const Space = () => {
+const Number1 = () => {
   return (
-    <BasicLetter style={{ flex: "0.25" }} />
+    <BasicLetter style={{ gridTemplateColumns: "var(--m) var(--l) var(--m)", gridTemplateRows: "var(--l) 1fr var(--s)", flex: "0.35"}}>
+      <Strok style={{ gridArea: "1 / 2 / 3 / 3" }} />
+      <Strok style={{ gridArea: "3 / 1 / 4 / 4" }} />
+      <Serif style={{ gridArea: "1 / 1 / 2 / 2" }} orientation="hbl" />
+    </BasicLetter>
+  )
+}
+
+const Number2 = () => {
+  return (
+    <BasicLetter style={{ gridTemplateColumns: "var(--l) var(--m) 1fr 1fr var(--m) var(--l) var(--s)", gridTemplateRows: "var(--s) 1fr var(--l) var(--l) 1fr var(--l) 1fr var(--m) var(--l)", flex: "0.7"}}>
+      <Round style={{ gridArea: "1 / 1 / 4 / 4" }} orientation="tl" $strokex="var(--l)" $strokey="var(--s)"  $square={true} />
+      <Strok style={{ gridArea: "4 / 1 / 5 / 2" }} />
+      <Serif style={{ gridArea: "4 / 2 / 5 / 3" }} orientation="hbr" />
+      <Round style={{ gridArea: "1 / 4 / 4 / 8" }} orientation="tr" $strokex="var(--s)" $strokey="var(--s)" $square={true} />
+      <Round style={{ gridArea: "4 / 8 / 7 / 4" }} orientation="br" $strokex="var(--s)" $strokey="var(--l)" $square={true} />
+      <Round style={{ gridArea: "6 / 1 / 9 / 4" }} orientation="tl" $strokex="var(--s)" $strokey="var(--l)" $square={true} />
+      <Strok style={{ gridArea: "9 / 1 / 10 / 8" }} />
+      <Strok style={{ gridArea: "8 / 7 / 9 / 8" }} />
+    </BasicLetter>
+  )
+}
+
+const Space = ({$style}) => {
+  return (
+    <BasicLetter style={{ flex: "0.25", ...$style }} />
   )
 }
 
@@ -623,33 +648,18 @@ function App() {
   return (
     <section id="main">
       <div class="sub-container">
-      <LetterE />
-      <LetterS />
-      <LetterS />
       <LetterU />
-      <LetterY />
-      <LetterE />
-      <LetterZ />
-      <Space />
-      <LetterV />
+      <LetterT />
       <LetterO />
-      <LetterS />
-      <Space />
       <LetterP />
-      <LetterI />
-      <LetterE />
-      <LetterD />
-      <LetterS />
       </div>
       <div class="sub-container">
+      <LetterI />
       <LetterS />
-      <Point />
-      <Space />
-      <LetterV />
-      <Point $style={{ marginLeft: "-3%" }} $star={true}/>
-      <Space />
-      <LetterP />
-      <Point $style={{ marginLeft: "-5%" }} />
+      <LetterT />
+      <LetterE />
+      <Point $star={true}/>
+      <Number2 />
       </div>
     </section>
   )
