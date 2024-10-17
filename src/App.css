@@ -5,9 +5,11 @@
 } */
 
 :root {
-  --s: 0.2vw;
-  --m: 0.8vw;
-  --l: 1.6vw;
+  --coef: calc((1vw + 1vh) / 2);
+
+  --s: calc(0.2 * var(--coef));
+  --m: calc(1.2 * var(--coef));
+  --l: calc(2.4 * var(--coef));
 
   --color1: rgb(0,0,0);
   --color2: rgb(255,255,255);
@@ -29,12 +31,12 @@ section#main {
   margin: 250px;
   position: relative;
   display: flex;
-  gap: 10px;
+  gap: calc(2 * var(--coef));
   flex-direction:column;
 }
 
 .sub-container {
   flex: 1 1 100%;
   display: flex;
-  gap: 1vw;
+  gap: calc(1 * var(--coef));
 }
